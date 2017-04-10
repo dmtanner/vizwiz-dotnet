@@ -1,0 +1,38 @@
+2017-04-07 17:10:43.3552|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/10/messages application/json 
+2017-04-07 17:10:44.2014|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) with arguments (10) - ModelState is Valid
+2017-04-07 17:10:44.6528|FATAL|Vizwiz.API.Controllers.MessagesController|Exception while getting messages for tag with id 10System.Exception: Exception test
+   at Vizwiz.API.Controllers.MessagesController.GetMessages(Int32 tagId) in C:\Users\Marcus\Documents\Visual Studio 2017\Projects\Vizwiz.API\Vizwiz.API\Controllers\MessagesController.cs:line 27
+2017-04-07 17:10:44.7469|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-07 17:10:44.8810|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) in 867.5371ms
+2017-04-07 17:10:44.9300|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1603.4564ms 500 application/json; charset=utf-8
+2017-04-08 09:34:59.3872|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-08 09:34:59.8336|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 488.5473ms 200 
+2017-04-08 09:35:13.9009|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DELETE http://localhost:51258/api/tags/1/messages/1 application/json 
+2017-04-08 09:35:15.3133|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.DeleteMessage (Vizwiz.API) with arguments (1, 1) - ModelState is Valid
+2017-04-08 09:35:40.2636|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 204
+2017-04-08 09:35:40.3000|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.DeleteMessage (Vizwiz.API) in 25212.9012ms
+2017-04-08 09:35:40.3320|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 26440.2151ms 204 
+2017-04-08 09:36:02.1050|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DELETE http://localhost:51258/api/tags/1/messages/1 application/json 
+2017-04-08 09:36:02.1460|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.DeleteMessage (Vizwiz.API) with arguments (1, 1) - ModelState is Valid
+2017-04-08 09:36:02.1685|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 404
+2017-04-08 09:36:02.1830|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.DeleteMessage (Vizwiz.API) in 43.3883ms
+2017-04-08 09:36:02.2521|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 148.2516ms 404 text/plain
+2017-04-08 09:36:16.5464|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DELETE http://localhost:51258/api/tags/1/messages/1 application/json 
+2017-04-08 09:36:16.5845|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.DeleteMessage (Vizwiz.API) with arguments (1, 1) - ModelState is Valid
+2017-04-08 09:36:16.6025|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 404
+2017-04-08 09:36:16.6205|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.DeleteMessage (Vizwiz.API) in 35.496ms
+2017-04-08 09:36:16.6575|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 119.0738ms 404 text/plain
+2017-04-08 09:40:52.6396|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-08 09:40:53.1369|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 536.0146ms 200 
+2017-04-08 09:40:58.1540|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DELETE http://localhost:51258/api/tags/1/messages/1 application/json 
+2017-04-08 09:40:58.9386|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.DeleteMessage (Vizwiz.API) with arguments (1, 1) - ModelState is Valid
+2017-04-08 09:41:03.5775|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 204
+2017-04-08 09:41:03.6306|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.DeleteMessage (Vizwiz.API) in 4866.6265ms
+2017-04-08 09:41:03.7106|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 5544.3086ms 204 
+2017-04-08 10:01:47.4122|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DELETE http://localhost:51258/api/tags/1/messages/1 application/json 
+2017-04-08 10:01:47.4122|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-08 10:01:47.8841|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 476.1651ms 200 
+2017-04-08 10:01:48.5072|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.DeleteMessage (Vizwiz.API) with arguments (1, 1) - ModelState is Valid
+2017-04-08 10:01:56.8628|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 204
+2017-04-08 10:01:56.8953|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.DeleteMessage (Vizwiz.API) in 8573.0917ms
+2017-04-08 10:01:56.9213|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 9591.5547ms 204 
