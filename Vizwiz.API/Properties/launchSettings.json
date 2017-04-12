@@ -11,7 +11,8 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "connectionStrings": "Server=(localdb)\\\\my",
+        "ASPNETCORE_ENVIRONMENT": "Production"
       }
     },
     "Vizwiz.API": {

@@ -7,6 +7,7 @@ using Vizwiz.API.Models;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.Extensions.Logging;
 using Vizwiz.API.Services;
+using AutoMapper;
 
 namespace Vizwiz.API.Controllers
 {
@@ -15,11 +16,14 @@ namespace Vizwiz.API.Controllers
     {
         private ILogger<MessagesController> _logger;
         private IMailService _mailService;
+        private IVizwizRepository _vizwizRepository;
 
-        public MessagesController(ILogger<MessagesController> logger, IMailService mailService)
+        public MessagesController(ILogger<MessagesController> logger, IMailService mailService,
+            IVizwizRepository repository)
         {
             _logger = logger;
             _mailService = mailService;
+            _vizwizRepository = repository;
         }
 
         [HttpGet("{tagId}/messages")]
@@ -27,14 +31,17 @@ namespace Vizwiz.API.Controllers
         {
             try
             {
-                var tag = TagsDataStore.Current.Tags.FirstOrDefault(t => t.Id == tagId);
-                if(tag == null)
+                if(!_vizwizRepository.TagExists(tagId))
                 {
                     _logger.LogInformation($"tag with id {tagId} could not be found while accessing messages");
                     return NotFound();
                 }
 
-                return Ok(tag.Messages);
+                var messagesForTag = _vizwizRepository.GetMessagesForTag(tagId);
+
+                var messagesForTagResults = Mapper.Map<IEnumerable<MessageDto>>(messagesForTag); 
+
+                return Ok(messagesForTagResults);
             }
             catch(Exception ex)
             {
@@ -46,19 +53,20 @@ namespace Vizwiz.API.Controllers
         [HttpGet("{tagId}/messages/{messageId}", Name="GetMessage")]
         public IActionResult GetMessage(int tagId, int messageId)
         {
-            var tag = TagsDataStore.Current.Tags.FirstOrDefault(t => t.Id == tagId);
-            if(tag == null)
+            if(!_vizwizRepository.TagExists(tagId))
             {
                 return NotFound();
             }
 
-            var message = tag.Messages.FirstOrDefault(m => m.Id == messageId);
+            var message = _vizwizRepository.GetMessage(messageId);
             if(message == null)
             {
                 return NotFound();
             }
 
-            return Ok(message);
+            var messageResults = Mapper.Map<MessageDto>(message);
+
+            return Ok(messageResults);
         }
 
         [HttpPost("{tagId}/message")]
@@ -75,26 +83,30 @@ namespace Vizwiz.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            var tag = TagsDataStore.Current.Tags.FirstOrDefault(t => t.Id == tagId);
-            if (tag == null)
+            if (!_vizwizRepository.TagExists(tagId))
             {
                 return NotFound();
             }
 
-            var maxMessageId = TagsDataStore.Current.Tags.SelectMany(
-                t => t.Messages).Max(m => m.Id);
 
-            var finalMessage = new MessageDto()
+            var finalMessage = Mapper.Map<Entities.Message>(message);
+
+            _vizwizRepository.AddMessage(tagId, finalMessage);
+            if(!_vizwizRepository.Save())
             {
-                Id = maxMessageId + 1,
-                Text = message.Text,
-                PhoneNumber = message.PhoneNumber
-            };
+                return StatusCode(500, "A problem happened while adding message");
+            }
+            // update the message count for tag
+            _vizwizRepository.UpdateTagNumberMessages(tagId);
+            if(!_vizwizRepository.Save())
+            {
+                return StatusCode(500, "A problem happened while adding message");
+            }
 
-            tag.Messages.Add(finalMessage);
+            var createdMessage = Mapper.Map<MessageDto>(finalMessage);
 
             return CreatedAtRoute("GetMessage", new
-            { tagId = tagId, messageId = finalMessage.Id }, finalMessage);
+            { tagId = tagId, messageId = createdMessage.Id }, createdMessage);
         }
 
         [HttpPut("{tagId}/messages/{messageId}")]
@@ -111,20 +123,23 @@ namespace Vizwiz.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            var tag = TagsDataStore.Current.Tags.FirstOrDefault(t => t.Id == tagId);
-            if (tag == null)
+            if (!_vizwizRepository.TagExists(tagId))
             {
                 return NotFound();
             }
 
-            var messageFromStore = tag.Messages.FirstOrDefault(m => m.Id == messageId);
-            if(messageFromStore == null)
+            var messageEntity = _vizwizRepository.GetMessage(messageId); 
+            if(messageEntity == null)
             {
                 return NotFound();
             }
 
-            messageFromStore.Text = message.Text;
-            messageFromStore.PhoneNumber = message.PhoneNumber;
+            Mapper.Map(message, messageEntity);
+
+            if(!_vizwizRepository.Save())
+            {
+                return StatusCode(500, "There was a problem while updating your message");
+            }
 
             return NoContent();
         }
@@ -138,23 +153,18 @@ namespace Vizwiz.API.Controllers
                 return BadRequest();
             }
 
-            var tag = TagsDataStore.Current.Tags.FirstOrDefault(t => t.Id == tagId);
-            if (tag == null)
+            if (!_vizwizRepository.TagExists(tagId))
             {
                 return NotFound();
             }
 
-            var messageFromStore = tag.Messages.FirstOrDefault(m => m.Id == messageId);
-            if(messageFromStore == null)
+            var messageEntity = _vizwizRepository.GetMessage(messageId); 
+            if(messageEntity == null)
             {
                 return NotFound();
             }
 
-            var messageToPatch = new MessageForUpdateDto()
-            {
-                Text = messageFromStore.Text,
-                PhoneNumber = messageFromStore.PhoneNumber
-            };
+            var messageToPatch = Mapper.Map<MessageForUpdateDto>(messageEntity);
 
             patchDoc.ApplyTo(messageToPatch, ModelState);
 
@@ -170,8 +180,11 @@ namespace Vizwiz.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            messageFromStore.Text = messageToPatch.Text;
-            messageFromStore.PhoneNumber = messageToPatch.PhoneNumber;
+            Mapper.Map(messageToPatch, messageEntity);
+            if(!_vizwizRepository.Save())
+            {
+                return StatusCode(500, "There was a problem while updating your message");
+            }
 
             return NoContent();
         }
@@ -179,19 +192,29 @@ namespace Vizwiz.API.Controllers
         [HttpDelete("{tagId}/messages/{messageId}")]
         public IActionResult DeleteMessage(int tagId, int messageId)
         {
-            var tag = TagsDataStore.Current.Tags.FirstOrDefault(t => t.Id == tagId);
-            if (tag == null)
+            if (!_vizwizRepository.TagExists(tagId))
             {
                 return NotFound();
             }
 
-            var messageFromStore = tag.Messages.FirstOrDefault(m => m.Id == messageId);
-            if(messageFromStore == null)
+            var messageEntity = _vizwizRepository.GetMessage(messageId); 
+            if(messageEntity == null)
             {
                 return NotFound();
             }
 
-            tag.Messages.Remove(messageFromStore);
+            _vizwizRepository.DeleteMessage(messageEntity);
+            if(!_vizwizRepository.Save())
+            {
+                return StatusCode(500, "There was a problem while deleting your message");
+            }
+            // update the message count for tag
+            _vizwizRepository.UpdateTagNumberMessages(tagId);
+            if(!_vizwizRepository.Save())
+            {
+                return StatusCode(500, "A problem happened while adding message");
+            }
+            
             _mailService.Send("message deleted", $"{messageId} deleted from database");
 
             return NoContent();
