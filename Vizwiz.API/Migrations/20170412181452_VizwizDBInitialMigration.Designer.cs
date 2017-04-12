@@ -8,8 +8,8 @@ using Vizwiz.API.Entities;
 namespace Vizwiz.API.Migrations
 {
     [DbContext(typeof(VizwizContext))]
-    [Migration("20170410184930_VizwizDbInitialMigration")]
-    partial class VizwizDbInitialMigration
+    [Migration("20170412181452_VizwizDBInitialMigration")]
+    partial class VizwizDBInitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,23 +24,34 @@ namespace Vizwiz.API.Migrations
 
                     b.Property<string>("PhoneNumber");
 
-                    b.Property<int>("TagId");
-
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasMaxLength(300);
 
                     b.HasKey("Id");
 
+                    b.ToTable("Messages");
+                });
+
+            modelBuilder.Entity("Vizwiz.API.Entities.MessageTag", b =>
+                {
+                    b.Property<int>("MessageId");
+
+                    b.Property<int>("TagId");
+
+                    b.HasKey("MessageId", "TagId");
+
                     b.HasIndex("TagId");
 
-                    b.ToTable("Messages");
+                    b.ToTable("MessageTag");
                 });
 
             modelBuilder.Entity("Vizwiz.API.Entities.Tag", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<int>("NumberMessages");
 
                     b.Property<string>("Text")
                         .IsRequired()
@@ -51,10 +62,15 @@ namespace Vizwiz.API.Migrations
                     b.ToTable("Tags");
                 });
 
-            modelBuilder.Entity("Vizwiz.API.Entities.Message", b =>
+            modelBuilder.Entity("Vizwiz.API.Entities.MessageTag", b =>
                 {
+                    b.HasOne("Vizwiz.API.Entities.Message", "Message")
+                        .WithMany("MessageTags")
+                        .HasForeignKey("MessageId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("Vizwiz.API.Entities.Tag", "Tag")
-                        .WithMany("messages")
+                        .WithMany("MessageTags")
                         .HasForeignKey("TagId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

@@ -15,5 +15,22 @@ namespace Vizwiz.API.Entities
         }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Message> Messages { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<MessageTag>()
+                .HasKey(t => new { t.MessageId, t.TagId });
+
+            modelBuilder.Entity<MessageTag>()
+                .HasOne(mt => mt.Message)
+                .WithMany(m => m.MessageTags)
+                .HasForeignKey(mt => mt.MessageId);
+
+            modelBuilder.Entity<MessageTag>()
+                .HasOne(mt => mt.Tag)
+                .WithMany(t => t.MessageTags)
+                .HasForeignKey(mt => mt.TagId);
+
+        }
     }
 }

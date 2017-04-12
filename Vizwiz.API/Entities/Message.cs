@@ -20,8 +20,8 @@ namespace Vizwiz.API.Entities
         [Phone(ErrorMessage = "Invalid Phone Number")]
         public String PhoneNumber { get; set; }
 
-        [ForeignKey("TagId")]
-        public Tag Tag { get; set; }
-        public int TagId { get; set; }
+        public ICollection<MessageTag> MessageTags { get; set; }
+            = new List<MessageTag>();
+
     }
 }

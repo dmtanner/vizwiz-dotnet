@@ -9,6 +9,8 @@ namespace Vizwiz.API.Entities
 {
     public class Tag
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Tag needs text")]
@@ -17,8 +19,8 @@ namespace Vizwiz.API.Entities
 
         public int NumberMessages { get; set; }
 
-        public ICollection<Message> Messages { get; set; }
-            = new List<Message>();
+        public ICollection<MessageTag> MessageTags { get; set; }
+            = new List<MessageTag>();
 
     }
 }

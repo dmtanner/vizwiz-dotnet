@@ -17,86 +17,46 @@ namespace Vizwiz.API
             }
 
             // init seed data
-            var tags = new List<Tag>()
+
+            // Create Tag
+            Tag tag = new Tag()
             {
-                new Tag()
-                {
-                    Text = "NeverAgain",
-                    NumberMessages = 3,
-                    Messages = new List<Message>
-                    {
-                        new Message()
-                        {
-                            Text = "why oh why #NeverAgain",
-                            PhoneNumber = "1234567899"
-                        },
-                        new Message()
-                        {
-                            Text = "me oh my #NeverAgain",
-                            PhoneNumber = "2234567899"
-                        },
-                        new Message()
-                        {
-                            Text = "this is it #NeverAgain",
-                            PhoneNumber = "1234567800"
-                        }
-                    }
-                },
-                new Tag()
-                {
-                    Text = "AlwaysAndForever",
-                    NumberMessages = 3,
-                    Messages = new List<Message>
-                    {
-                        new Message()
-                        {
-                            Text = "yeah baby #AlwaysAndForever",
-                            PhoneNumber = "9876543210"
-                        },
-                        new Message()
-                        {
-                            Text = "mawwiage #AlwaysAndForever",
-                            PhoneNumber = "2534567899"
-                        },
-                        new Message()
-                        {
-                            Text = "Kip me outta here #AlwaysAndForever",
-                            PhoneNumber = "1234567800"
-                        }
-                    }
-                },
-                new Tag()
-                {
-                    Text = "Word",
-                    NumberMessages = 4,
-                    Messages = new List<Message>
-                    {
-                        new Message()
-                        {
-                            Text = "nothing to say #Word",
-                            PhoneNumber = "9876543210"
-                        },
-                        new Message()
-                        {
-                            Text = "give me your #Word",
-                            PhoneNumber = "2534567899"
-                        },
-                        new Message()
-                        {
-                            Text = "outta my head #Word",
-                            PhoneNumber = "1234567800"
-                        },
-                        new Message()
-                        {
-                            Text = "outta my head2 #Word",
-                            PhoneNumber = "1234567800"
-                        }
-                    }
-                }
+                Text = "Word",
+                NumberMessages = 2
             };
 
+            // Create 2 messages
+            Message message1 = new Message()
+            {
+                Text = "nothing to say #Word",
+                PhoneNumber = "9876543210",
+            };
+            Message message2 = new Message()
+            {
+                Text = "more to say here #Word",
+                PhoneNumber = "7776543210",
+            };
 
-            context.Tags.AddRange(tags);
+            // create 2 MessageTags
+            MessageTag mt1 = new MessageTag();
+            MessageTag mt2 = new MessageTag();
+
+            // map message 1 to tag
+            mt1.Message = message1;
+            mt1.Tag = tag;
+
+            // map message 2 to tag
+            mt2.Message = message2;
+            mt2.Tag = tag;
+
+            // link mappings to tag
+            tag.MessageTags.Add(mt1);
+            tag.MessageTags.Add(mt2);
+
+            // Add tag and 2 messages to db
+            context.Tags.Add(tag);
+            context.Messages.Add(message1);
+            context.Messages.Add(message2);
             context.SaveChanges();
         }
     }
