@@ -20,7 +20,7 @@ namespace Vizwiz.API.Entities
         [Phone(ErrorMessage = "Invalid Phone Number")]
         public String PhoneNumber { get; set; }
 
-        public ICollection<MessageTag> MessageTags { get; set; }
+        public  ICollection<MessageTag> MessageTags { get; set; }
             = new List<MessageTag>();
 
     }

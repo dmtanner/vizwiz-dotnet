@@ -49,8 +49,22 @@ namespace Vizwiz.API.Controllers
             return Ok(result);
 
         }
+
+        [HttpGet("{tagId}/messages")]
+        public IActionResult GetTagMessages(int tagId)
+        {
+            var messages = _vizwizRepository.GetMessagesByTag(tagId);
+            if(messages == null)
+            {
+                return BadRequest();
+            }
+
+            var messagesResults = Mapper.Map<IEnumerable<MessageDto>>(messages);
+
+            return Ok(messagesResults);
+        }
         
-        [HttpPost("")]
+        [HttpPost()]
         public IActionResult CreateTag()
         {
             return NotFound();

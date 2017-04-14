@@ -20,18 +20,6 @@ namespace Vizwiz.API.Services
             return _vizwizContext.Tags.Any(t => t.Id == tagId);
         }
 
-        public Message GetMessage(int messageId)
-        {
-            return _vizwizContext.Messages.Where(m => m.Id == messageId)
-                .FirstOrDefault();
-        }
-
-        public IEnumerable<Message> GetMessagesForTag(int tagId)
-        {
-            //return _vizwizContext.Messages.Where(m => m.TagId == tagId)
-            //    .ToList();
-            return null;
-        }
 
         public Tag GetTag(int tagId, bool includeMessages)
         {
@@ -57,10 +45,53 @@ namespace Vizwiz.API.Services
             //_vizwizContext.Tags.Update(tag);
         }
 
-        public void AddMessage(int tagId, Message message)
+        public Message GetMessage(int messageId)
         {
-            //var tag = GetTag(tagId, false);
-            //tag.Messages.Add(message);
+            return _vizwizContext.Messages.Where(m => m.Id == messageId)
+                .FirstOrDefault();
+        }
+
+        public IEnumerable<Message> GetMessages()
+        {
+            return _vizwizContext.Messages.OrderBy(m => m.PhoneNumber);
+        }
+
+        public IEnumerable<Message> GetMessagesByTag(int tagId)
+        {
+            return _vizwizContext.Messages.Where(m => m.MessageTags.Any(mt => mt.TagId == tagId))
+                .ToList();
+        }
+
+        public void AddMessage(ICollection<string> tagTexts, Message message)
+        {
+            // add message to db
+            _vizwizContext.Messages.Add(message);
+
+            // create MessageTags for each tag
+            foreach (string tagText in tagTexts)
+            {
+                Tag tag = _vizwizContext.Tags.Where(t => t.Text == tagText).FirstOrDefault();
+                if(tag == null)
+                {
+                    tag = new Tag()
+                    {
+                        Text = tagText,
+                        NumberMessages = 1
+                    };
+                    _vizwizContext.Add(tag);
+                }
+
+                MessageTag mt = new MessageTag()
+                {
+                    Message = message,
+                    Tag = tag
+                };
+
+                tag.MessageTags.Add(mt);
+
+                _vizwizContext.Update(tag);
+            }
+
         }
 
         public void DeleteMessage(Message message)

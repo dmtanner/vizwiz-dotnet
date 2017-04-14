@@ -11,7 +11,7 @@ using AutoMapper;
 
 namespace Vizwiz.API.Controllers
 {
-    [Route("api/tags")]
+    [Route("api/[controller]")]
     public class MessagesController : Controller
     {
         private ILogger<MessagesController> _logger;
@@ -26,38 +26,27 @@ namespace Vizwiz.API.Controllers
             _vizwizRepository = repository;
         }
 
-        [HttpGet("{tagId}/messages")]
-        public IActionResult GetMessages(int tagId)
+        [HttpGet()]
+        public IActionResult GetMessages()
         {
             try
             {
-                if(!_vizwizRepository.TagExists(tagId))
-                {
-                    _logger.LogInformation($"tag with id {tagId} could not be found while accessing messages");
-                    return NotFound();
-                }
+                var messages = _vizwizRepository.GetMessages();
 
-                var messagesForTag = _vizwizRepository.GetMessagesForTag(tagId);
+                var messagesResults = Mapper.Map<IEnumerable<MessageDto>>(messages); 
 
-                var messagesForTagResults = Mapper.Map<IEnumerable<MessageDto>>(messagesForTag); 
-
-                return Ok(messagesForTagResults);
+                return Ok(messagesResults);
             }
             catch(Exception ex)
             {
-                _logger.LogCritical($"Exception while getting messages for tag with id {tagId}" + ex);
+                _logger.LogCritical($"Exception while getting messages" + ex);
                 return StatusCode(500, "There was an error while handling your request");
             }
         }
 
-        [HttpGet("{tagId}/messages/{messageId}", Name="GetMessage")]
-        public IActionResult GetMessage(int tagId, int messageId)
+        [HttpGet("{messageId}", Name="GetMessage")]
+        public IActionResult GetMessage(int messageId)
         {
-            if(!_vizwizRepository.TagExists(tagId))
-            {
-                return NotFound();
-            }
-
             var message = _vizwizRepository.GetMessage(messageId);
             if(message == null)
             {
@@ -69,8 +58,8 @@ namespace Vizwiz.API.Controllers
             return Ok(messageResults);
         }
 
-        [HttpPost("{tagId}/message")]
-        public IActionResult CreateMessage(int tagId,
+        [HttpPost()]
+        public IActionResult CreateMessage(
             [FromBody] MessageForCreationDto message)
         {
             if (message == null)
@@ -83,34 +72,30 @@ namespace Vizwiz.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (!_vizwizRepository.TagExists(tagId))
-            {
-                return NotFound();
-            }
-
-
             var finalMessage = Mapper.Map<Entities.Message>(message);
 
-            _vizwizRepository.AddMessage(tagId, finalMessage);
+            ICollection<string> tags = extractTags(finalMessage.Text);
+
+            _vizwizRepository.AddMessage(tags, finalMessage);
             if(!_vizwizRepository.Save())
             {
                 return StatusCode(500, "A problem happened while adding message");
             }
             // update the message count for tag
-            _vizwizRepository.UpdateTagNumberMessages(tagId);
-            if(!_vizwizRepository.Save())
-            {
-                return StatusCode(500, "A problem happened while adding message");
-            }
+            //_vizwizRepository.UpdateTagNumberMessages(tagId);
+            //if(!_vizwizRepository.Save())
+            //{
+            //    return StatusCode(500, "A problem happened while adding message");
+            //}
 
             var createdMessage = Mapper.Map<MessageDto>(finalMessage);
 
             return CreatedAtRoute("GetMessage", new
-            { tagId = tagId, messageId = createdMessage.Id }, createdMessage);
+            { messageId = createdMessage.Id }, createdMessage);
         }
 
-        [HttpPut("{tagId}/messages/{messageId}")]
-        public IActionResult UpdateMessage(int tagId, int messageId,
+        [HttpPut("{messageId}")]
+        public IActionResult UpdateMessage(int messageId,
             [FromBody] MessageForUpdateDto message)
         {
             if (message == null)
@@ -121,11 +106,6 @@ namespace Vizwiz.API.Controllers
             if(!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
-            }
-
-            if (!_vizwizRepository.TagExists(tagId))
-            {
-                return NotFound();
             }
 
             var messageEntity = _vizwizRepository.GetMessage(messageId); 
@@ -144,18 +124,13 @@ namespace Vizwiz.API.Controllers
             return NoContent();
         }
 
-        [HttpPatch("{tagId}/messages/{messageId}")]
-        public IActionResult PartiallyUpdateMessage(int tagId, int messageId,
+        [HttpPatch("{messageId}")]
+        public IActionResult PartiallyUpdateMessage(int messageId,
             [FromBody] JsonPatchDocument<MessageForUpdateDto> patchDoc)
         {
             if(patchDoc == null)
             {
                 return BadRequest();
-            }
-
-            if (!_vizwizRepository.TagExists(tagId))
-            {
-                return NotFound();
             }
 
             var messageEntity = _vizwizRepository.GetMessage(messageId); 
@@ -189,13 +164,9 @@ namespace Vizwiz.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{tagId}/messages/{messageId}")]
-        public IActionResult DeleteMessage(int tagId, int messageId)
+        [HttpDelete("{messageId}")]
+        public IActionResult DeleteMessage(int messageId)
         {
-            if (!_vizwizRepository.TagExists(tagId))
-            {
-                return NotFound();
-            }
 
             var messageEntity = _vizwizRepository.GetMessage(messageId); 
             if(messageEntity == null)
@@ -209,15 +180,23 @@ namespace Vizwiz.API.Controllers
                 return StatusCode(500, "There was a problem while deleting your message");
             }
             // update the message count for tag
-            _vizwizRepository.UpdateTagNumberMessages(tagId);
-            if(!_vizwizRepository.Save())
-            {
-                return StatusCode(500, "A problem happened while adding message");
-            }
+            //_vizwizRepository.UpdateTagNumberMessages(tagId);
+            //if(!_vizwizRepository.Save())
+            //{
+            //    return StatusCode(500, "A problem happened while adding message");
+            //}
             
             _mailService.Send("message deleted", $"{messageId} deleted from database");
 
             return NoContent();
+        }
+
+        private ICollection<string> extractTags(string messageText)
+        {
+            ICollection<string> tags = new List<string>();
+            tags.Add("Poopy");
+            tags.Add("Peepy");
+            return tags;
         }
     }
 }
