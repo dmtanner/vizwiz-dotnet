@@ -21,14 +21,8 @@ namespace Vizwiz.API.Services
         }
 
 
-        public Tag GetTag(int tagId, bool includeMessages)
+        public Tag GetTag(int tagId)
         {
-            if(includeMessages)
-            {
-                //return _vizwizContext.Tags.Include(t => t.Messages)
-                //    .Where(t => t.Id == tagId).FirstOrDefault();
-            }
-
             return _vizwizContext.Tags.Where(t => t.Id == tagId).FirstOrDefault();
         }
 
@@ -87,9 +81,11 @@ namespace Vizwiz.API.Services
                     Tag = tag
                 };
 
-                tag.MessageTags.Add(mt);
 
-                _vizwizContext.Update(tag);
+                tag.MessageTags.Add(mt);
+                message.MessageTags.Add(mt);
+
+                //_vizwizContext.Update(tag);
             }
 
         }

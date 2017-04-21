@@ -42,7 +42,8 @@ namespace Vizwiz.API
             services.AddTransient<IMailService, LocalMailService>();
 
             var connectionString = Startup.Configuration["connectionStrings:VizwizDbConnectionString"]; 
-            services.AddDbContext<VizwizContext>(o => o.UseSqlServer(connectionString));
+            //services.AddDbContext<VizwizContext>(o => o.UseSqlServer(connectionString));
+            services.AddDbContext<VizwizContext>(o => o.UseInMemoryDatabase());
 
             services.AddScoped<IVizwizRepository, VizwizRepository>()   ;
         }
@@ -76,8 +77,9 @@ namespace Vizwiz.API
                 cfg.CreateMap<Entities.Message, Models.MessageForUpdateDto>();
             });
 
-            app.UseCors(builder =>
-                builder.WithOrigins("http://localhost:4200"));
+            //app.UseCors(builder =>
+            //    builder.WithOrigins("http://localhost:4200"));
+            //app.UseCors(b => b.WithMethods("POST", "GET"));
 
             app.UseMvc();
 

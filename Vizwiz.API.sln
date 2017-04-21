@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.10
+VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vizwiz.API", "Vizwiz.API\Vizwiz.API.csproj", "{097B963F-95BF-4DF4-A43A-DD19DDC504ED}"
 EndProject
@@ -15,6 +15,7 @@ Global
 		{097B963F-95BF-4DF4-A43A-DD19DDC504ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{097B963F-95BF-4DF4-A43A-DD19DDC504ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{097B963F-95BF-4DF4-A43A-DD19DDC504ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{097B963F-95BF-4DF4-A43A-DD19DDC504ED}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

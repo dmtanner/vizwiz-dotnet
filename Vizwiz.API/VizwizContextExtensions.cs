@@ -30,11 +30,13 @@ namespace Vizwiz.API
             {
                 Text = "nothing to say #Word",
                 PhoneNumber = "9876543210",
+                Date = DateTime.Parse("2016-07-05 21:46:15")
             };
             Message message2 = new Message()
             {
                 Text = "more to say here #Word",
                 PhoneNumber = "7776543210",
+                Date = DateTime.Parse("2016-07-05 21:46:15")
             };
 
             // create 2 MessageTags

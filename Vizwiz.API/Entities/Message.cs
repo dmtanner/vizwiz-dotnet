@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Vizwiz.API.Entities
 {
@@ -19,6 +17,8 @@ namespace Vizwiz.API.Entities
 
         [Phone(ErrorMessage = "Invalid Phone Number")]
         public String PhoneNumber { get; set; }
+
+        public DateTime Date { get; set; }
 
         public  ICollection<MessageTag> MessageTags { get; set; }
             = new List<MessageTag>();

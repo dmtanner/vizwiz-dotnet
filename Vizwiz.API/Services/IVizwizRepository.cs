@@ -10,7 +10,7 @@ namespace Vizwiz.API.Services
     {
         bool TagExists(int tagId);
         IEnumerable<Tag> GetTags();
-        Tag GetTag(int tagId, bool includeMessages);
+        Tag GetTag(int tagId);
         IEnumerable<Message> GetMessagesByTag(int tagId);
         Message GetMessage(int messageId);
         IEnumerable<Message> GetMessages();

@@ -13,5 +13,6 @@ namespace Vizwiz.API.Models
         public String Text { get; set; }
         [Phone(ErrorMessage = "Invalid Phone Number")]
         public String PhoneNumber { get; set; }
+        public DateTime Date { get; set; }
     }
 }

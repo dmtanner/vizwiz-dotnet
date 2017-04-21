@@ -7406,3 +7406,1255 @@ WHERE [t].[Id] = @__tagId_0
 2017-04-14 17:09:35.6446|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
 2017-04-14 17:09:35.6712|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) in 288.6896ms
 2017-04-14 17:09:35.7177|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 369.7136ms 200 application/json; charset=utf-8
+2017-04-15 09:41:58.6317|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [t])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2017-04-15 09:42:00.5134|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-15 09:42:00.9523|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 480.3359ms 200 
+2017-04-15 09:42:42.6449|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags  
+2017-04-15 09:42:43.3596|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 09:42:43.3996|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 09:42:43.4296|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-15 09:42:43.5014|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-15 09:42:43.6949|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+ORDER BY [t].[Text]
+2017-04-15 09:42:43.9347|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-15 09:42:44.2380|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) in 944.951ms
+2017-04-15 09:42:44.2810|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1626.9697ms 200 application/json; charset=utf-8
+2017-04-15 09:42:47.0861|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/3/messages  
+2017-04-15 09:42:47.1462|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 09:42:47.1902|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 09:42:47.2277|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-15 09:42:47.3434|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTagMessages (Vizwiz.API) with arguments (3) - ModelState is Valid
+2017-04-15 09:42:47.5708|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (53ms) [Parameters=[@__tagId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT [m].[Id], [m].[PhoneNumber], [m].[Text]
+FROM [Messages] AS [m]
+WHERE EXISTS (
+    SELECT 1
+    FROM [MessageTag] AS [mt]
+    WHERE ([mt].[TagId] = @__tagId_0) AND ([m].[Id] = [mt].[MessageId]))
+2017-04-15 09:42:47.6414|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-15 09:42:47.6696|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTagMessages (Vizwiz.API) in 546.6483ms
+2017-04-15 09:42:47.7006|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 623.3294ms 200 application/json; charset=utf-8
+2017-04-15 09:42:53.0295|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags  
+2017-04-15 09:42:53.1215|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 09:42:53.1666|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 09:42:53.2006|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-15 09:42:53.2251|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-15 09:42:53.2576|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+ORDER BY [t].[Text]
+2017-04-15 09:42:53.2942|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-15 09:42:53.3192|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) in 234.2541ms
+2017-04-15 09:42:53.3496|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 346.1099ms 200 application/json; charset=utf-8
+2017-04-15 09:42:54.1974|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/2/messages  
+2017-04-15 09:42:54.2685|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 09:42:54.3230|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 09:42:54.4026|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-15 09:42:54.4466|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTagMessages (Vizwiz.API) with arguments (2) - ModelState is Valid
+2017-04-15 09:42:54.4966|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[@__tagId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT [m].[Id], [m].[PhoneNumber], [m].[Text]
+FROM [Messages] AS [m]
+WHERE EXISTS (
+    SELECT 1
+    FROM [MessageTag] AS [mt]
+    WHERE ([mt].[TagId] = @__tagId_0) AND ([m].[Id] = [mt].[MessageId]))
+2017-04-15 09:42:54.5637|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-15 09:42:54.6087|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTagMessages (Vizwiz.API) in 356.2028ms
+2017-04-15 09:42:54.6838|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 459.7888ms 200 application/json; charset=utf-8
+2017-04-15 09:43:05.0197|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags  
+2017-04-15 09:43:05.1212|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 09:43:05.1718|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 09:43:05.2078|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-15 09:43:05.2528|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-15 09:43:05.2964|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+ORDER BY [t].[Text]
+2017-04-15 09:43:05.3430|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-15 09:43:05.3700|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) in 272.2042ms
+2017-04-15 09:43:05.4080|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 409.4934ms 200 application/json; charset=utf-8
+2017-04-15 09:43:06.4265|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/1/messages  
+2017-04-15 09:43:06.4785|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 09:43:06.5085|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 09:43:06.5368|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-15 09:43:06.5703|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTagMessages (Vizwiz.API) with arguments (1) - ModelState is Valid
+2017-04-15 09:43:06.5973|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[@__tagId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT [m].[Id], [m].[PhoneNumber], [m].[Text]
+FROM [Messages] AS [m]
+WHERE EXISTS (
+    SELECT 1
+    FROM [MessageTag] AS [mt]
+    WHERE ([mt].[TagId] = @__tagId_0) AND ([m].[Id] = [mt].[MessageId]))
+2017-04-15 09:43:06.6264|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-15 09:43:06.6489|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTagMessages (Vizwiz.API) in 179.2509ms
+2017-04-15 09:43:06.6814|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 255.6269ms 200 application/json; charset=utf-8
+2017-04-15 09:43:14.0996|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags  
+2017-04-15 09:43:14.1586|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 09:43:14.2006|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 09:43:14.2312|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-15 09:43:14.2667|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-15 09:43:14.2967|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+ORDER BY [t].[Text]
+2017-04-15 09:43:14.3352|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-15 09:43:14.3703|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) in 227.8981ms
+2017-04-15 09:43:14.4174|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 363.9477ms 200 application/json; charset=utf-8
+2017-04-15 14:55:56.4403|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [t])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2017-04-15 14:55:57.4594|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/  
+2017-04-15 14:55:57.9757|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 548.6702ms 404 text/plain
+2017-04-15 15:10:23.4137|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (50ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [t])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2017-04-15 15:10:26.3107|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-15 15:10:26.8131|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 525.3539ms 200 
+2017-04-15 15:10:45.9285|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/3  
+2017-04-15 15:10:47.3218|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:10:47.3749|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:10:47.4399|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-15 15:10:47.7536|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) with arguments (3, False) - ModelState is Valid
+2017-04-15 15:10:48.2745|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (133ms) [Parameters=[@__tagId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Id] = @__tagId_0
+2017-04-15 15:10:48.7368|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-15 15:10:49.1411|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) in 1865.5487ms
+2017-04-15 15:10:49.2067|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 3267.8337ms 200 application/json; charset=utf-8
+2017-04-15 15:11:20.3339|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/3  
+2017-04-15 15:11:20.3965|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:11:20.4635|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:11:20.5061|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-15 15:11:20.5366|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) with arguments (3, False) - ModelState is Valid
+2017-04-15 15:11:20.6542|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (3ms) [Parameters=[@__tagId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Id] = @__tagId_0
+2017-04-15 15:11:20.7527|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-15 15:11:20.8373|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) in 410.1181ms
+2017-04-15 15:11:20.9609|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 632.5522ms 200 application/json; charset=utf-8
+2017-04-15 15:18:31.5656|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/3  
+2017-04-15 15:18:31.8458|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:18:32.0789|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:18:32.2185|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-15 15:18:32.2931|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) with arguments (3, False) - ModelState is Valid
+2017-04-15 15:18:32.3646|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (4ms) [Parameters=[@__tagId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Id] = @__tagId_0
+2017-04-15 15:18:32.5323|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-15 15:18:32.6724|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) in 932.6378ms
+2017-04-15 15:18:32.8635|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1200.8621ms 200 application/json; charset=utf-8
+2017-04-15 15:18:37.5652|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/3  
+2017-04-15 15:18:37.6312|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:18:37.7633|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:18:37.8389|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-15 15:18:37.8874|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) with arguments (3, False) - ModelState is Valid
+2017-04-15 15:18:37.9390|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[@__tagId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Id] = @__tagId_0
+2017-04-15 15:18:38.0100|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-15 15:18:38.1861|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) in 448.5561ms
+2017-04-15 15:18:38.3187|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 731.9544ms 200 application/json; charset=utf-8
+2017-04-15 15:19:05.5035|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/3  
+2017-04-15 15:19:05.6581|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:19:05.9979|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:19:06.1240|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-15 15:19:06.2100|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) with arguments (3, False) - ModelState is Valid
+2017-04-15 15:19:06.4067|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (5ms) [Parameters=[@__tagId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Id] = @__tagId_0
+2017-04-15 15:19:06.6734|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-15 15:19:06.7384|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) in 1137.0951ms
+2017-04-15 15:19:06.8795|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1398.7268ms 200 application/json; charset=utf-8
+2017-04-15 15:23:11.0190|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/3  
+2017-04-15 15:23:11.0716|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:23:11.1256|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:23:11.1646|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-15 15:23:11.2002|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) with arguments (3, False) - ModelState is Valid
+2017-04-15 15:23:11.2257|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (2ms) [Parameters=[@__tagId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Id] = @__tagId_0
+2017-04-15 15:23:11.2567|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-15 15:23:11.3252|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) in 224.7094ms
+2017-04-15 15:23:11.3948|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 346.1066ms 200 application/json; charset=utf-8
+2017-04-15 15:28:09.3340|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [t])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2017-04-15 15:28:10.9534|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-15 15:28:11.5563|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 697.1903ms 200 
+2017-04-15 15:28:13.8355|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags  
+2017-04-15 15:28:14.4204|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:28:14.4655|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:28:14.5050|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-15 15:28:14.6016|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-15 15:28:14.8797|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+ORDER BY [t].[Text]
+2017-04-15 15:28:15.2035|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-15 15:28:15.7033|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) in 1353.3472ms
+2017-04-15 15:28:15.7894|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1936.009ms 200 application/json; charset=utf-8
+2017-04-15 15:31:02.9648|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [t])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2017-04-15 15:31:04.6405|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-15 15:31:04.9063|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 289.1636ms 200 
+2017-04-15 15:31:28.0147|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/2  
+2017-04-15 15:31:28.5985|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:31:28.6566|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:31:28.6921|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-15 15:31:28.8887|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) with arguments (2, False) - ModelState is Valid
+2017-04-15 15:31:29.1917|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (76ms) [Parameters=[@__tagId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Id] = @__tagId_0
+2017-04-15 15:31:29.5034|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-15 15:31:29.7941|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) in 1223.5804ms
+2017-04-15 15:31:29.8407|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1831.6765ms 200 application/json; charset=utf-8
+2017-04-15 15:32:26.4475|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [t])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2017-04-15 15:32:27.7892|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-15 15:32:28.0639|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 297.1599ms 200 
+2017-04-15 15:32:29.9125|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/2  
+2017-04-15 15:32:30.9368|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:32:31.0554|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:32:31.1469|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-15 15:32:31.4817|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) with arguments (2, False) - ModelState is Valid
+2017-04-15 15:32:31.9010|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (70ms) [Parameters=[@__tagId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Id] = @__tagId_0
+2017-04-15 15:32:32.0975|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-15 15:32:32.5348|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) in 1873.4993ms
+2017-04-15 15:32:32.6949|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 2767.8694ms 200 application/json; charset=utf-8
+2017-04-15 15:33:59.1116|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [t])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2017-04-15 15:34:02.5115|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51259/  
+2017-04-15 15:34:04.5184|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 2005.6986ms 404 text/plain
+2017-04-15 15:34:04.7106|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51259/favicon.ico  
+2017-04-15 15:34:04.8076|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 107.2534ms 404 text/plain
+2017-04-15 15:34:10.9138|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51259/api/tags  
+2017-04-15 15:34:11.2791|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:34:11.3321|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:34:11.3891|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-15 15:34:11.5042|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-15 15:34:11.8094|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+ORDER BY [t].[Text]
+2017-04-15 15:34:12.2708|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-15 15:34:12.8782|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) in 1674.0414ms
+2017-04-15 15:34:12.9568|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 2024.2694ms 200 application/json; charset=utf-8
+2017-04-15 15:34:38.9548|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [t])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2017-04-15 15:34:40.1460|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-15 15:34:40.4942|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 393.1153ms 200 
+2017-04-15 15:36:07.4967|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [t])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2017-04-15 15:36:09.7235|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-15 15:36:11.5018|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1688.2641ms 200 
+2017-04-15 15:38:46.2147|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [t])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2017-04-15 15:38:47.5130|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-15 15:38:47.8232|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 323.0688ms 200 
+2017-04-15 15:38:58.6161|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/2  
+2017-04-15 15:38:59.3412|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:38:59.3712|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-15 15:38:59.4048|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-15 15:38:59.6685|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) with arguments (2, False) - ModelState is Valid
+2017-04-15 15:39:04.3815|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (58ms) [Parameters=[@__tagId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Id] = @__tagId_0
+2017-04-15 15:39:04.6537|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-15 15:39:04.9644|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) in 5685.6706ms
+2017-04-15 15:39:05.0174|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 6409.4999ms 200 application/json; charset=utf-8
+2017-04-17 15:01:35.3070|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [t])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2017-04-17 15:01:36.9743|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-17 15:01:37.2505|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 306.5144ms 200 
+2017-04-17 15:01:43.8244|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 58
+2017-04-17 15:01:44.5722|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:01:44.6093|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:01:44.6613|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:01:45.1960|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageForCreationDto) - ModelState is Valid
+2017-04-17 15:01:45.6029|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (58ms) [Parameters=[@__tagText_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Text] = @__tagText_0
+2017-04-17 15:08:30.7971|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [t])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2017-04-17 15:08:32.0394|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-17 15:08:32.0424|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 58
+2017-04-17 15:08:32.3189|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 322.5724ms 200 
+2017-04-17 15:08:32.7122|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:08:32.7452|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:08:32.7704|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:08:33.3870|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageForCreationDto) - ModelState is Valid
+2017-04-17 15:08:33.8229|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (76ms) [Parameters=[@__tagText_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Text] = @__tagText_0
+2017-04-17 15:08:50.3997|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 17756.9185ms
+2017-04-17 15:08:50.6374|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request
+2017-04-17 15:08:50.9504|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 18962.418ms 500 text/html; charset=utf-8
+2017-04-17 15:10:50.8801|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [t])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2017-04-17 15:10:52.2097|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-17 15:10:52.4361|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 248.3061ms 200 
+2017-04-17 15:10:56.4120|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 58
+2017-04-17 15:10:57.1075|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:10:57.1480|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:10:57.1789|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:10:57.5595|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageForCreationDto) - ModelState is Valid
+2017-04-17 15:10:58.0755|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (44ms) [Parameters=[@__tagText_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Text] = @__tagText_0
+2017-04-17 15:10:58.2803|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (6ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 300), @p2='?', @p3='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Messages] ([PhoneNumber], [Text])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [Messages]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+INSERT INTO [Tags] ([NumberMessages], [Text])
+VALUES (@p2, @p3);
+SELECT [Id]
+FROM [Tags]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2017-04-17 15:10:58.3342|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (2ms) [Parameters=[@p4='?', @p5='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [MessageTag] ([MessageId], [TagId])
+VALUES (@p4, @p5);
+2017-04-17 15:10:58.4150|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:10:58.6211|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 1592.2219ms
+2017-04-17 15:10:58.6622|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 2248.2356ms 201 application/json; charset=utf-8
+2017-04-17 15:12:16.2900|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 64
+2017-04-17 15:12:16.3816|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:12:16.4256|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:12:16.4547|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:12:16.4857|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageForCreationDto) - ModelState is Valid
+2017-04-17 15:12:16.5302|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[@__tagText_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Text] = @__tagText_0
+2017-04-17 15:12:16.5758|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 300)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Messages] ([PhoneNumber], [Text])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [Messages]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2017-04-17 15:12:16.6028|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[@p2='?', @p3='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [MessageTag] ([MessageId], [TagId])
+VALUES (@p2, @p3);
+2017-04-17 15:12:16.6393|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:12:16.6658|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 304.5573ms
+2017-04-17 15:12:16.6999|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 439.414ms 201 application/json; charset=utf-8
+2017-04-17 15:19:37.8367|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags application/json 
+2017-04-17 15:19:37.9298|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:19:37.9758|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:19:38.0056|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:19:38.0296|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-17 15:19:38.0878|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+ORDER BY [t].[Text]
+2017-04-17 15:19:38.1401|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:19:38.1641|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) in 270.0096ms
+2017-04-17 15:19:38.1901|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 357.9178ms 200 application/json; charset=utf-8
+2017-04-17 15:19:45.5074|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/4 application/json 
+2017-04-17 15:19:45.5684|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:19:45.6610|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:19:45.7356|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:19:45.8086|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) with arguments (4, False) - ModelState is Valid
+2017-04-17 15:19:51.1777|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[@__tagId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Id] = @__tagId_0
+2017-04-17 15:19:51.2342|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:19:51.2622|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) in 5710.0791ms
+2017-04-17 15:19:51.2982|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 5787.7479ms 200 application/json; charset=utf-8
+2017-04-17 15:19:59.6935|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/messages application/json 
+2017-04-17 15:19:59.7441|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:19:59.8136|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:19:59.8566|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:19:59.8806|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-17 15:19:59.9262|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [m].[Id], [m].[PhoneNumber], [m].[Text]
+FROM [Messages] AS [m]
+ORDER BY [m].[PhoneNumber]
+2017-04-17 15:20:05.2193|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:20:05.2838|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) in 5545.7875ms
+2017-04-17 15:20:05.3454|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 5634.8042ms 200 application/json; charset=utf-8
+2017-04-17 15:20:34.1792|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/messages/4039 application/json 
+2017-04-17 15:20:34.2432|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:20:34.2943|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:20:34.3213|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:20:34.3513|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.GetMessage (Vizwiz.API) with arguments (4039) - ModelState is Valid
+2017-04-17 15:20:34.3974|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[@__messageId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[PhoneNumber], [m].[Text]
+FROM [Messages] AS [m]
+WHERE [m].[Id] = @__messageId_0
+2017-04-17 15:20:34.4253|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:20:34.4463|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.GetMessage (Vizwiz.API) in 219.6302ms
+2017-04-17 15:20:34.4733|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 292.5128ms 200 application/json; charset=utf-8
+2017-04-17 15:20:41.0397|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/messages/4039/tags application/json 
+2017-04-17 15:20:41.0937|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 51.0642ms 404 text/plain
+2017-04-17 15:20:50.0635|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/4/messages application/json 
+2017-04-17 15:20:50.1136|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:20:50.1583|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:20:50.1845|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:20:50.2057|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTagMessages (Vizwiz.API) with arguments (4) - ModelState is Valid
+2017-04-17 15:20:50.2902|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (2ms) [Parameters=[@__tagId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT [m].[Id], [m].[PhoneNumber], [m].[Text]
+FROM [Messages] AS [m]
+WHERE EXISTS (
+    SELECT 1
+    FROM [MessageTag] AS [mt]
+    WHERE ([mt].[TagId] = @__tagId_0) AND ([m].[Id] = [mt].[MessageId]))
+2017-04-17 15:20:50.3586|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:20:50.3776|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTagMessages (Vizwiz.API) in 281.5348ms
+2017-04-17 15:20:50.4006|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 336.6579ms 200 application/json; charset=utf-8
+2017-04-17 15:27:02.4289|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [t])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2017-04-17 15:27:03.6882|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-17 15:27:03.9734|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 343.3214ms 200 
+2017-04-17 15:27:22.3619|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 60
+2017-04-17 15:27:23.0344|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:27:23.0965|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:27:23.1650|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:27:23.8365|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageForCreationDto) - ModelState is Valid
+2017-04-17 15:27:24.2933|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (62ms) [Parameters=[@__tagText_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Text] = @__tagText_0
+2017-04-17 15:27:24.5144|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 300), @p2='?', @p3='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Messages] ([PhoneNumber], [Text])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [Messages]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+INSERT INTO [Tags] ([NumberMessages], [Text])
+VALUES (@p2, @p3);
+SELECT [Id]
+FROM [Tags]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2017-04-17 15:27:24.5734|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[@p4='?', @p5='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [MessageTag] ([MessageId], [TagId])
+VALUES (@p4, @p5);
+2017-04-17 15:27:24.6564|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:27:24.8533|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 1951.7167ms
+2017-04-17 15:27:24.8843|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 2533.5662ms 201 application/json; charset=utf-8
+2017-04-17 15:28:34.5676|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 86
+2017-04-17 15:28:34.6462|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:28:34.6906|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:28:34.7216|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:28:34.7606|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageForCreationDto) - ModelState is Valid
+2017-04-17 15:28:34.8017|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[@__tagText_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Text] = @__tagText_0
+2017-04-17 15:28:34.8367|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[@__tagText_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Text] = @__tagText_0
+2017-04-17 15:28:34.8627|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[@__tagText_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Text] = @__tagText_0
+2017-04-17 15:28:34.9168|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (12ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 300), @p2='?', @p3='?' (Size = 50), @p4='?', @p5='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Messages] ([PhoneNumber], [Text])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [Messages]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+DECLARE @toInsert1 TABLE ([NumberMessages] int, [Text] nvarchar(50), [_Position] [int]);
+INSERT INTO @toInsert1
+VALUES (@p2, @p3, 0),
+(@p4, @p5, 1);
+
+DECLARE @inserted1 TABLE ([Id] int, [_Position] [int]);
+MERGE [Tags] USING @toInsert1 AS i ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([NumberMessages], [Text])
+VALUES (i.[NumberMessages], i.[Text])
+OUTPUT INSERTED.[Id], i._Position
+INTO @inserted1;
+
+SELECT [t].[Id] FROM [Tags] t
+INNER JOIN @inserted1 i ON ([t].[Id] = [i].[Id])
+ORDER BY [i].[_Position];
+2017-04-17 15:28:34.9398|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (2ms) [Parameters=[@p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [MessageTag] ([MessageId], [TagId])
+VALUES (@p6, @p7),
+(@p8, @p9),
+(@p10, @p11);
+2017-04-17 15:28:34.9756|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:28:34.9971|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 369.2387ms
+2017-04-17 15:28:35.0291|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 470.3605ms 201 application/json; charset=utf-8
+2017-04-17 15:31:55.4476|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [t])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2017-04-17 15:31:56.9108|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags application/json 
+2017-04-17 15:31:56.9108|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-17 15:31:57.2255|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 379.0909ms 200 
+2017-04-17 15:31:57.7640|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:31:57.8190|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:31:57.8510|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:31:57.9170|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-17 15:31:58.1431|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+ORDER BY [t].[Text]
+2017-04-17 15:31:58.3203|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:31:58.5809|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) in 920.8201ms
+2017-04-17 15:31:58.6125|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1780.9682ms 200 application/json; charset=utf-8
+2017-04-17 15:33:23.6079|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 86
+2017-04-17 15:33:23.7636|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:33:23.7998|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:33:23.8288|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:33:24.0685|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageForCreationDto) - ModelState is Valid
+2017-04-17 15:33:24.4528|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (97ms) [Parameters=[@__tagText_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Text] = @__tagText_0
+2017-04-17 15:33:24.5919|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (4ms) [Parameters=[@__tagText_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Text] = @__tagText_0
+2017-04-17 15:33:24.7325|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (3ms) [Parameters=[@__tagText_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Text] = @__tagText_0
+2017-04-17 15:33:25.1748|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 300)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Messages] ([PhoneNumber], [Text])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [Messages]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2017-04-17 15:33:25.2969|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (6ms) [Parameters=[@p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [MessageTag] ([MessageId], [TagId])
+VALUES (@p2, @p3),
+(@p4, @p5),
+(@p6, @p7);
+2017-04-17 15:33:25.3801|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:33:25.4632|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 1756.8233ms
+2017-04-17 15:33:25.4982|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1897.5187ms 201 application/json; charset=utf-8
+2017-04-17 15:33:33.1954|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags application/json 
+2017-04-17 15:33:33.2745|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:33:33.3365|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:33:33.3835|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:33:33.4161|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-17 15:33:33.4414|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+ORDER BY [t].[Text]
+2017-04-17 15:33:33.4724|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:33:33.4935|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) in 237.2805ms
+2017-04-17 15:33:33.5205|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 327.0227ms 200 application/json; charset=utf-8
+2017-04-17 15:34:00.2816|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 86
+2017-04-17 15:34:00.3381|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:34:00.3818|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:34:00.4086|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:34:00.4355|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageForCreationDto) - ModelState is Valid
+2017-04-17 15:34:00.4625|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[@__tagText_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Text] = @__tagText_0
+2017-04-17 15:41:58.1584|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [t])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2017-04-17 15:41:59.4791|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-17 15:41:59.7354|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 285.7682ms 200 
+2017-04-17 15:42:24.5395|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 64
+2017-04-17 15:42:25.1700|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:42:25.2009|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:42:25.2281|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:42:25.6638|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageForCreationDto) - ModelState is Valid
+2017-04-17 15:42:26.3530|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (52ms) [Parameters=[@__tagText_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Text] = @__tagText_0
+2017-04-17 15:42:26.5429|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 300), @p2='?', @p3='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Messages] ([PhoneNumber], [Text])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [Messages]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+INSERT INTO [Tags] ([NumberMessages], [Text])
+VALUES (@p2, @p3);
+SELECT [Id]
+FROM [Tags]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2017-04-17 15:42:26.6610|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:42:26.8277|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 1715.4046ms
+2017-04-17 15:42:26.8578|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 2318.2607ms 201 application/json; charset=utf-8
+2017-04-17 15:44:40.0828|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [t])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2017-04-17 15:44:40.6113|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (54ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 300), @p2='?' (Size = 4000), @p3='?' (Size = 300), @p4='?', @p5='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DECLARE @toInsert0 TABLE ([PhoneNumber] nvarchar(max), [Text] nvarchar(300), [_Position] [int]);
+INSERT INTO @toInsert0
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1);
+
+DECLARE @inserted0 TABLE ([Id] int, [_Position] [int]);
+MERGE [Messages] USING @toInsert0 AS i ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([PhoneNumber], [Text])
+VALUES (i.[PhoneNumber], i.[Text])
+OUTPUT INSERTED.[Id], i._Position
+INTO @inserted0;
+
+SELECT [t].[Id] FROM [Messages] t
+INNER JOIN @inserted0 i ON ([t].[Id] = [i].[Id])
+ORDER BY [i].[_Position];
+
+INSERT INTO [Tags] ([NumberMessages], [Text])
+VALUES (@p4, @p5);
+SELECT [Id]
+FROM [Tags]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2017-04-17 15:44:40.6514|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (6ms) [Parameters=[@p6='?', @p7='?', @p8='?', @p9='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [MessageTag] ([MessageId], [TagId])
+VALUES (@p6, @p7),
+(@p8, @p9);
+2017-04-17 15:44:41.5151|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-17 15:44:41.7873|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 330.7451ms 200 
+2017-04-17 15:45:24.1814|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 64
+2017-04-17 15:45:24.9730|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:45:25.0101|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:45:25.0371|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:45:25.5374|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageForCreationDto) - ModelState is Valid
+2017-04-17 15:45:25.7419|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (5ms) [Parameters=[@__tagText_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Text] = @__tagText_0
+2017-04-17 15:45:25.7831|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 300), @p2='?', @p3='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Messages] ([PhoneNumber], [Text])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [Messages]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+INSERT INTO [Tags] ([NumberMessages], [Text])
+VALUES (@p2, @p3);
+SELECT [Id]
+FROM [Tags]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2017-04-17 15:45:25.8772|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:45:26.0584|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 1156.1935ms
+2017-04-17 15:45:26.0877|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1908.9571ms 201 application/json; charset=utf-8
+2017-04-17 15:47:33.1924|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Tags] AS [t])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2017-04-17 15:47:34.6836|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-17 15:47:35.0109|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 416.7433ms 200 
+2017-04-17 15:47:40.0123|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 69
+2017-04-17 15:47:40.7228|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:47:40.7569|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:47:40.7841|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:47:41.2575|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageForCreationDto) - ModelState is Valid
+2017-04-17 15:47:41.7304|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (45ms) [Parameters=[@__tagText_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Text] = @__tagText_0
+2017-04-17 15:47:41.9936|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 300), @p2='?', @p3='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Messages] ([PhoneNumber], [Text])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [Messages]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+INSERT INTO [Tags] ([NumberMessages], [Text])
+VALUES (@p2, @p3);
+SELECT [Id]
+FROM [Tags]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2017-04-17 15:47:42.0496|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[@p4='?', @p5='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [MessageTag] ([MessageId], [TagId])
+VALUES (@p4, @p5);
+2017-04-17 15:47:42.1305|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:47:42.2937|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 1661.6643ms
+2017-04-17 15:47:42.3327|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 2348.4813ms 201 application/json; charset=utf-8
+2017-04-17 15:49:20.8205|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 69
+2017-04-17 15:49:20.8921|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:49:20.9326|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:49:20.9646|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:49:20.9965|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageForCreationDto) - ModelState is Valid
+2017-04-17 15:49:21.0446|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[@__tagText_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Text] = @__tagText_0
+2017-04-17 15:49:21.0861|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 300)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Messages] ([PhoneNumber], [Text])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [Messages]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2017-04-17 15:49:21.1059|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[@p2='?', @p3='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [MessageTag] ([MessageId], [TagId])
+VALUES (@p2, @p3);
+2017-04-17 15:49:21.1391|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:49:21.1611|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 293.8233ms
+2017-04-17 15:49:21.1866|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 387.2436ms 201 application/json; charset=utf-8
+2017-04-17 15:50:29.2302|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/messages application/json 
+2017-04-17 15:50:29.2912|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:50:29.3382|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:50:29.3663|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:50:29.3923|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-17 15:50:29.4723|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [m].[Id], [m].[PhoneNumber], [m].[Text]
+FROM [Messages] AS [m]
+ORDER BY [m].[PhoneNumber]
+2017-04-17 15:50:29.5048|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:50:29.5263|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) in 253.5625ms
+2017-04-17 15:50:29.5624|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 329.0259ms 200 application/json; charset=utf-8
+2017-04-17 15:50:33.4263|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/messages/3 application/json 
+2017-04-17 15:50:33.4884|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:50:33.5314|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:50:33.5614|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:50:33.6014|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.GetMessage (Vizwiz.API) with arguments (3) - ModelState is Valid
+2017-04-17 15:50:33.6424|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[@__messageId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[PhoneNumber], [m].[Text]
+FROM [Messages] AS [m]
+WHERE [m].[Id] = @__messageId_0
+2017-04-17 15:50:33.6714|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:50:33.6955|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.GetMessage (Vizwiz.API) in 224.8736ms
+2017-04-17 15:50:33.7215|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 296.4345ms 200 application/json; charset=utf-8
+2017-04-17 15:51:07.7245|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/messages/3 application/json 
+2017-04-17 15:51:07.7996|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:51:07.8481|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:51:07.8852|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:51:07.9118|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.GetMessage (Vizwiz.API) with arguments (3) - ModelState is Valid
+2017-04-17 15:51:15.1078|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[@__messageId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[PhoneNumber], [m].[Text]
+FROM [Messages] AS [m]
+WHERE [m].[Id] = @__messageId_0
+2017-04-17 15:53:05.7846|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:53:05.8086|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.GetMessage (Vizwiz.API) in 118035.1872ms
+2017-04-17 15:53:05.8676|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 118135.5658ms 200 application/json; charset=utf-8
+2017-04-17 15:53:12.0823|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/3 application/json 
+2017-04-17 15:53:12.1573|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:53:12.2384|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:53:12.2894|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:53:12.3395|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) with arguments (3) - ModelState is Valid
+2017-04-17 15:53:12.3895|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[@__tagId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[NumberMessages], [t].[Text]
+FROM [Tags] AS [t]
+WHERE [t].[Id] = @__tagId_0
+2017-04-17 15:53:12.4506|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:53:12.4906|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) in 357.3375ms
+2017-04-17 15:53:12.5266|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 441.7933ms 200 application/json; charset=utf-8
+2017-04-17 15:53:23.9593|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/3/messages application/json 
+2017-04-17 15:53:24.0469|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:53:24.1780|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:53:24.2575|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:53:24.3041|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTagMessages (Vizwiz.API) with arguments (3) - ModelState is Valid
+2017-04-17 15:53:24.4992|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (10ms) [Parameters=[@__tagId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT [m].[Id], [m].[PhoneNumber], [m].[Text]
+FROM [Messages] AS [m]
+WHERE EXISTS (
+    SELECT 1
+    FROM [MessageTag] AS [mt]
+    WHERE ([mt].[TagId] = @__tagId_0) AND ([m].[Id] = [mt].[MessageId]))
+2017-04-17 15:53:24.5485|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-17 15:53:24.5715|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTagMessages (Vizwiz.API) in 550.911ms
+2017-04-17 15:53:24.6001|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 640.1301ms 200 application/json; charset=utf-8
+2017-04-17 15:58:03.3590|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/3/messages application/json 
+2017-04-17 15:58:03.4861|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:58:03.5397|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2017-04-17 15:58:03.5732|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2017-04-17 15:58:03.5997|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTagMessages (Vizwiz.API) with arguments (3) - ModelState is Valid
+2017-04-17 15:58:08.4810|INFO|Microsoft.EntityFrameworkCore.Storage.IRelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[@__tagId_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT [m].[Id], [m].[PhoneNumber], [m].[Text]
+FROM [Messages] AS [m]
+WHERE EXISTS (
+    SELECT 1
+    FROM [MessageTag] AS [mt]
+    WHERE ([mt].[TagId] = @__tagId_0) AND ([m].[Id] = [mt].[MessageId]))
+2017-04-20 13:53:19.5421|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 5 entities to in-memory store.
+2017-04-20 13:53:20.7597|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-20 13:53:21.0258|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 304.5577ms 200 
+2017-04-20 13:53:24.8858|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/3  
+2017-04-20 13:53:25.9913|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) with arguments (3) - ModelState is Valid
+2017-04-20 13:53:26.2310|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 404
+2017-04-20 13:53:26.2681|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTag (Vizwiz.API) in 554.5317ms
+2017-04-20 13:53:26.3566|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1430.36ms 404 text/plain
+2017-04-20 13:53:27.0336|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/favicon.ico  
+2017-04-20 13:53:27.1412|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 138.3641ms 404 text/plain
+2017-04-20 13:53:28.9469|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/tags/  
+2017-04-20 13:53:28.9825|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-20 13:53:29.1401|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-20 13:53:29.3447|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.TagsController.GetTags (Vizwiz.API) in 364.0135ms
+2017-04-20 13:53:29.3982|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 451.4384ms 200 application/json; charset=utf-8
+2017-04-20 16:20:05.0137|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 5 entities to in-memory store.
+2017-04-20 16:20:06.6038|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-20 16:20:06.8510|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 273.0799ms 200 
+2017-04-20 16:20:58.7757|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/messages  
+2017-04-20 16:20:59.5513|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-20 16:20:59.7850|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-20 16:21:00.1518|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) in 676.9959ms
+2017-04-20 16:21:00.2359|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1450.7293ms 200 application/json; charset=utf-8
+2017-04-20 16:21:24.6835|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/messages  
+2017-04-20 16:21:24.7225|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-20 16:21:24.7626|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-20 16:21:24.8626|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) in 78.4716ms
+2017-04-20 16:21:24.8907|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 202.6839ms 200 application/json; charset=utf-8
+2017-04-20 16:21:51.3735|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 204
+2017-04-20 16:21:51.6448|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageNexmoDto) - ModelState is Valid
+2017-04-20 16:25:41.1128|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/messages  
+2017-04-20 16:25:41.2169|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 229807.0964ms
+2017-04-20 16:25:41.2329|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-20 16:25:41.2890|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-20 16:25:41.3170|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) in 100.2423ms
+2017-04-20 16:25:41.3570|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request
+2017-04-20 16:25:41.3871|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 292.412ms 200 application/json; charset=utf-8
+2017-04-20 16:25:41.8109|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 230437.9911ms 500 text/html; charset=utf-8
+2017-04-20 16:25:58.9144|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 5 entities to in-memory store.
+2017-04-20 16:26:00.3387|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 204
+2017-04-20 16:26:00.3387|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-20 16:26:00.6240|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 360.4012ms 200 
+2017-04-20 16:26:01.3248|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageNexmoDto) - ModelState is Valid
+2017-04-20 16:27:53.7259|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 5 entities to in-memory store.
+2017-04-20 16:27:54.9716|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 204
+2017-04-20 16:27:54.9746|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-20 16:27:55.2713|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 376.6528ms 200 
+2017-04-20 16:27:55.9811|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageNexmoDto) - ModelState is Valid
+2017-04-20 16:30:14.5219|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 5 entities to in-memory store.
+2017-04-20 16:30:15.4806|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 204
+2017-04-20 16:30:15.4806|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-20 16:30:15.8580|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 416.581ms 200 
+2017-04-20 16:30:16.7532|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageNexmoDto) - ModelState is Valid
+2017-04-20 16:30:49.6219|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 5 entities to in-memory store.
+2017-04-20 16:30:50.7691|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-20 16:30:51.1254|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 373.2583ms 200 
+2017-04-20 16:30:52.1225|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 204
+2017-04-20 16:30:52.9364|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageNexmoDto) - ModelState is Valid
+2017-04-20 16:46:26.2902|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 5 entities to in-memory store.
+2017-04-20 16:46:27.6527|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 204
+2017-04-20 16:46:27.6527|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-20 16:46:27.9474|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 356.6288ms 200 
+2017-04-20 16:46:28.6655|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageNexmoDto) - ModelState is Valid
+2017-04-20 16:46:36.3822|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 1 entities to in-memory store.
+2017-04-20 16:46:36.4713|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-20 16:46:36.6779|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 8386.0152ms
+2017-04-20 16:46:36.7055|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 9121.9407ms 201 application/json; charset=utf-8
+2017-04-20 16:46:54.8142|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/messages  
+2017-04-20 16:46:54.8622|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-20 16:46:55.0894|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-20 16:46:55.1094|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) in 252.0733ms
+2017-04-20 16:46:55.1940|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 361.5129ms 200 application/json; charset=utf-8
+2017-04-20 16:47:11.5018|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 204
+2017-04-20 16:47:11.5383|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageNexmoDto) - ModelState is Valid
+2017-04-20 16:48:14.0256|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 1 entities to in-memory store.
+2017-04-20 16:48:14.0457|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-20 16:48:14.0877|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 62536.1513ms
+2017-04-20 16:48:14.1878|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 62641.38ms 201 application/json; charset=utf-8
+2017-04-20 16:48:25.8060|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 211
+2017-04-20 16:48:25.8350|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageNexmoDto) - ModelState is Valid
+2017-04-20 16:48:29.4502|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 3 entities to in-memory store.
+2017-04-20 16:48:29.4738|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-20 16:48:29.4928|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 3659.7291ms
+2017-04-20 16:48:29.5228|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 3710.6852ms 201 application/json; charset=utf-8
+2017-04-20 16:48:42.1014|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/messages  
+2017-04-20 16:48:42.1399|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-20 16:48:42.1764|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-20 16:48:42.2019|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) in 59.5682ms
+2017-04-20 16:48:42.2660|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 158.1278ms 200 application/json; charset=utf-8
+2017-04-20 16:51:08.4763|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 5 entities to in-memory store.
+2017-04-20 16:51:09.7769|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 211
+2017-04-20 16:51:09.7769|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-20 16:51:10.0802|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 366.9419ms 200 
+2017-04-20 16:51:10.8007|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageNexmoDto) - ModelState is Valid
+2017-04-20 16:51:10.9868|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 3 entities to in-memory store.
+2017-04-20 16:51:11.0459|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 200
+2017-04-20 16:51:11.0809|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 643.4891ms
+2017-04-20 16:51:11.1535|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1435.1312ms 200 
+2017-04-21 09:20:15.3721|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 5 entities to in-memory store.
+2017-04-21 09:29:59.6916|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 5 entities to in-memory store.
+2017-04-21 09:30:00.8006|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-21 09:30:01.0638|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 320.8294ms 200 
+2017-04-21 09:30:02.2380|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 211
+2017-04-21 09:30:03.1726|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageNexmoDto) - ModelState is Valid
+2017-04-21 09:30:03.1872|FATAL|Vizwiz.API.Controllers.MessagesController|NEXMO FORMAT:----------------------:
+2017-04-21 09:30:03.2222|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 200
+2017-04-21 09:30:03.2727|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 612.8678ms
+2017-04-21 09:30:03.3258|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1071.5002ms 200 
+2017-04-21 09:30:08.2139|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/messages application/json 
+2017-04-21 09:30:08.2569|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-21 09:30:08.5131|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-21 09:30:08.6157|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) in 368.935ms
+2017-04-21 09:30:08.6437|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 431.6775ms 200 application/json; charset=utf-8
+2017-04-21 09:30:21.8729|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 211
+2017-04-21 09:30:21.9114|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageNexmoDto) - ModelState is Valid
+2017-04-21 09:30:21.9329|FATAL|Vizwiz.API.Controllers.MessagesController|NEXMO FORMAT:----------------------:
+2017-04-21 09:30:21.9620|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 200
+2017-04-21 09:30:21.9870|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 83.0921ms
+2017-04-21 09:30:22.0185|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 144.3665ms 200 
+2017-04-21 09:31:03.6734|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 5 entities to in-memory store.
+2017-04-21 09:31:04.9280|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-21 09:31:04.9280|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 211
+2017-04-21 09:31:05.3478|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 466.7724ms 200 
+2017-04-21 09:31:06.2900|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageNexmoDto) - ModelState is Valid
+2017-04-21 09:31:06.3100|FATAL|Vizwiz.API.Controllers.MessagesController|NEXMO FORMAT:----------------------:
+2017-04-21 09:31:12.2501|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 3 entities to in-memory store.
+2017-04-21 09:31:12.2916|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 200
+2017-04-21 09:31:12.3617|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 6652.6532ms
+2017-04-21 09:31:12.4302|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 7538.644ms 200 
+2017-04-21 12:04:17.5891|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 5 entities to in-memory store.
+2017-04-21 12:04:19.2722|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 211
+2017-04-21 12:04:19.2722|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-21 12:04:19.7781|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 564.6307ms 200 
+2017-04-21 12:04:20.3487|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageNexmoDto) - ModelState is Valid
+2017-04-21 12:05:26.0495|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 65917.3239ms
+2017-04-21 12:05:26.3279|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request
+2017-04-21 12:05:26.6098|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 67402.5738ms 500 text/html; charset=utf-8
+2017-04-21 13:02:27.4363|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 5 entities to in-memory store.
+2017-04-21 13:02:28.5262|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-21 13:02:28.6848|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 POST http://localhost:51258/api/messages application/json 211
+2017-04-21 13:02:28.9384|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 426.6021ms 200 
+2017-04-21 13:02:30.1078|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) with arguments (Vizwiz.API.Models.MessageNexmoDto) - ModelState is Valid
+2017-04-21 13:02:30.3049|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 3 entities to in-memory store.
+2017-04-21 13:02:30.3454|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 200
+2017-04-21 13:02:30.3870|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.CreateMessage (Vizwiz.API) in 722.8183ms
+2017-04-21 13:02:30.4545|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1744.6958ms 200 
+2017-04-21 13:02:46.2635|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/messages application/json 
+2017-04-21 13:02:46.3046|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-21 13:02:46.5437|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-21 13:02:46.6633|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) in 365.9772ms
+2017-04-21 13:02:46.6843|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 422.2577ms 200 application/json; charset=utf-8
+2017-04-21 13:07:26.4694|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.InMemoryDatabase|Saved 5 entities to in-memory store.
+2017-04-21 13:07:27.6253|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:51258/  0
+2017-04-21 13:07:27.6288|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:51258/api/messages application/json 
+2017-04-21 13:07:28.0115|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 426.0366ms 200 
+2017-04-21 13:07:28.5044|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) with arguments ((null)) - ModelState is Valid
+2017-04-21 13:07:28.7297|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2017-04-21 13:07:29.2626|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action Vizwiz.API.Controllers.MessagesController.GetMessages (Vizwiz.API) in 824.8908ms
+2017-04-21 13:07:29.3342|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1755.5231ms 200 application/json; charset=utf-8

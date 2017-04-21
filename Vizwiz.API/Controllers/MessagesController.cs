@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Vizwiz.API.Models;
 using Microsoft.AspNetCore.JsonPatch;
@@ -60,24 +58,34 @@ namespace Vizwiz.API.Controllers
 
         [HttpPost()]
         public IActionResult CreateMessage(
-            [FromBody] MessageForCreationDto message)
+            [FromBody] MessageNexmoDto messageNexmo)
         {
-            if (message == null)
+            if (messageNexmo == null)
             {
                 return BadRequest();
             }
 
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
+            // convert Nexmo formatted message into message for creation (local format)
+            // NOTE: when setting Nexmo webhook, it sends a null object, and so it will
+            // not set unless you return a status code 200 (instead of default 400 for null)
+            var message = new MessageForCreationDto()
+            {
+                PhoneNumber = messageNexmo.From,
+                Text = messageNexmo.Text,
+                Date = DateTime.Parse(messageNexmo.Date)
+            };
 
             var finalMessage = Mapper.Map<Entities.Message>(message);
 
             ICollection<string> tags = extractTags(finalMessage.Text);
 
             _vizwizRepository.AddMessage(tags, finalMessage);
-            if(!_vizwizRepository.Save())
+            if (!_vizwizRepository.Save())
             {
                 return StatusCode(500, "A problem happened while adding message");
             }
@@ -194,8 +202,14 @@ namespace Vizwiz.API.Controllers
         private ICollection<string> extractTags(string messageText)
         {
             ICollection<string> tags = new List<string>();
-            tags.Add("Poopy");
-            tags.Add("Peepy");
+            IList<string> words = messageText.ToUpper().Split(' ');
+            foreach (var word in words)
+            {
+                if(word.StartsWith("#"))
+                {
+                    tags.Add(word.Substring(1));
+                }
+            }
             return tags;
         }
     }

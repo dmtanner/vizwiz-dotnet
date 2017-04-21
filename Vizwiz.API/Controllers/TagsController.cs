@@ -29,19 +29,12 @@ namespace Vizwiz.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetTag(int id, bool includeMessages = false)
+        public IActionResult GetTag(int id)
         {
-            var tag = _vizwizRepository.GetTag(id, includeMessages);
+            var tag = _vizwizRepository.GetTag(id);
             if(tag == null)
             {
                 return NotFound();
-            }
-
-            // messages requested
-            if(includeMessages)
-            {
-                var tagResult = Mapper.Map<TagDto>(tag);
-                return Ok(tagResult);
             }
 
             // no messages requested
