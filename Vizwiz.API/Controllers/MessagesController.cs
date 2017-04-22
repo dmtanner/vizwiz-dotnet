@@ -73,16 +73,16 @@ namespace Vizwiz.API.Controllers
             // convert Nexmo formatted message into message for creation (local format)
             // NOTE: when setting Nexmo webhook, it sends a null object, and so it will
             // not set unless you return a status code 200 (instead of default 400 for null)
-            var message = new MessageForCreationDto()
+            var messageForCreation = new MessageForCreationDto()
             {
                 PhoneNumber = messageNexmo.From,
                 Text = messageNexmo.Text,
                 Date = DateTime.Parse(messageNexmo.Date)
             };
 
-            var finalMessage = Mapper.Map<Entities.Message>(message);
+            var finalMessage = Mapper.Map<Entities.Message>(messageForCreation);
 
-            ICollection<string> tags = extractTags(finalMessage.Text);
+            ICollection<string> tags = ExtractTags(finalMessage.Text);
 
             _vizwizRepository.AddMessage(tags, finalMessage);
             if (!_vizwizRepository.Save())
@@ -199,7 +199,7 @@ namespace Vizwiz.API.Controllers
             return NoContent();
         }
 
-        private ICollection<string> extractTags(string messageText)
+        private ICollection<string> ExtractTags(string messageText)
         {
             ICollection<string> tags = new List<string>();
             IList<string> words = messageText.ToUpper().Split(' ');

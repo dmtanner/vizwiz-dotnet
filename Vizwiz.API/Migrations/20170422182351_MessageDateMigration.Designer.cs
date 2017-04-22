@@ -8,9 +8,10 @@ using Vizwiz.API.Entities;
 namespace Vizwiz.API.Migrations
 {
     [DbContext(typeof(VizwizContext))]
-    partial class VizwizContextModelSnapshot : ModelSnapshot
+    [Migration("20170422182351_MessageDateMigration")]
+    partial class MessageDateMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")

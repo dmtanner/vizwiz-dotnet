@@ -41,9 +41,10 @@ namespace Vizwiz.API
 
             services.AddTransient<IMailService, LocalMailService>();
 
-            var connectionString = Startup.Configuration["connectionStrings:VizwizDbConnectionString"]; 
-            //services.AddDbContext<VizwizContext>(o => o.UseSqlServer(connectionString));
-            services.AddDbContext<VizwizContext>(o => o.UseInMemoryDatabase());
+            //var connectionString = Startup.Configuration["connectionStrings:VizwizDbConnectionString"]; 
+            //services.AddDbContext<VizwizContext>(o => o.UseInMemoryDatabase());
+            //var connectionString = Startup.Configuration["ConnectionStrings:DefaultConnection"];
+            services.AddDbContext<VizwizContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IVizwizRepository, VizwizRepository>()   ;
         }
@@ -64,7 +65,7 @@ namespace Vizwiz.API
                 app.UseExceptionHandler();
             }
 
-            vizwizContext.EnsureSeedDataForContext();
+            //vizwizContext.EnsureSeedDataForContext();
             app.UseStatusCodePages();
 
             AutoMapper.Mapper.Initialize(cfg =>

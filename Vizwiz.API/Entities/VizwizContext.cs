@@ -11,7 +11,7 @@ namespace Vizwiz.API.Entities
         public VizwizContext(DbContextOptions<VizwizContext> options)
             :base(options)
         {
-            //Database.Migrate();
+            Database.Migrate();
         }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Message> Messages { get; set; }
